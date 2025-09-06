@@ -359,7 +359,7 @@
   
   
   <span class="md-ellipsis">
-    📝 Description
+    📄 Description
     
   </span>
   
@@ -386,6 +386,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    🛠️ Tools
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -397,6 +410,88 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teamcity" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 TeamCity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jenkins" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Jenkins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dockerhub" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 DockerHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spinnaker" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Spinnaker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#istio" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Istio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Kubernetes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -438,7 +533,7 @@
   
   
   <span class="md-ellipsis">
-    ✨ Features
+    ⭐ Features
     
   </span>
   
@@ -522,6 +617,77 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 GitHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teamcity" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 TeamCity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jenkins" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Jenkins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dockerhub" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 DockerHub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spinnaker" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Spinnaker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#istio" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Istio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Kubernetes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -536,7 +702,55 @@
 
 
 
-<h1 id="tools">Tools</h1>
+<h1 id="tools">🛠️ Tools</h1>
+<hr />
+<h2 id="github">🔹 GitHub</h2>
+<ul>
+<li>Manages version control with <strong>main (production)</strong> and <strong>dev (development)</strong> branches.  </li>
+<li>Pull Requests enforce collaboration, approval, and status checks.  </li>
+<li>Prevents direct commits to <strong>main</strong>.  </li>
+</ul>
+<hr />
+<h2 id="teamcity">🔹 TeamCity</h2>
+<ul>
+<li>Acts as our <strong>Continuous Integration</strong> system.  </li>
+<li>Builds the <strong>Java app</strong>, runs automated unit tests, and reports results.  </li>
+<li>Provides status checks that must pass before merging <strong>PRs</strong>.  </li>
+</ul>
+<hr />
+<h2 id="jenkins">🔹 Jenkins</h2>
+<ul>
+<li>Specializes in building <strong>container images</strong>.  </li>
+<li>Uses <strong>Jenkinsfile</strong> to automate Docker builds and push images to <strong>DockerHub</strong>.  </li>
+<li>Ensures every build has a versioned tag and a moving latest tag.</li>
+</ul>
+<hr />
+<h2 id="dockerhub">🔹 DockerHub</h2>
+<ul>
+<li>Central registry for all container images.  </li>
+<li>Acts as the trigger source for Spinnaker pipelines.  </li>
+</ul>
+<hr />
+<h2 id="spinnaker">🔹 Spinnaker</h2>
+<ul>
+<li>Orchestrates <strong>continuous delivery</strong>.  </li>
+<li>Deploys canary first, then promotes to stable if successful.  </li>
+<li>Integrates with DockerHub to auto-trigger on new images.  </li>
+</ul>
+<hr />
+<h2 id="istio">🔹 Istio</h2>
+<ul>
+<li>Service mesh that controls <strong>traffic routing</strong>.  </li>
+<li>Splits traffic between <strong>stable</strong> and canary deployments.  </li>
+<li>Provides observability into rollout performance.  </li>
+</ul>
+<hr />
+<h2 id="kubernetes">🔹 Kubernetes</h2>
+<ul>
+<li>Hosts the application workloads.  </li>
+<li>Ensures <strong>five healthy replicas</strong> are always running.  </li>
+<li>Provides scaling, self-healing, and deployment orchestration.</li>
+</ul>
 
 
 

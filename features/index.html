@@ -22,7 +22,7 @@
     
     
       
-        <title>✨ Features - Automating CI/CD using TeamCity and Spinnaker</title>
+        <title>⭐ Features - Automating CI/CD using TeamCity and Spinnaker</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#features" class="md-skip">
+        <a href="#web-app-deployment" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ✨ Features
+              ⭐ Features
             
           </span>
         </div>
@@ -359,7 +359,7 @@
   
   
   <span class="md-ellipsis">
-    📝 Description
+    📄 Description
     
   </span>
   
@@ -429,20 +429,102 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    ⭐ Features
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    ✨ Features
+    ⭐ Features
     
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#web-app-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      📦 Web App Deployment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ci-with-teamcity" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ CI with TeamCity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-build-with-jenkins" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Image Build with Jenkins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cd-with-spinnaker" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 CD with Spinnaker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-workflow-branch-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌿 Git Workflow &amp; Branch Protection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resilience-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ Resilience &amp; Recovery
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -519,8 +601,68 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#web-app-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      📦 Web App Deployment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ci-with-teamcity" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ CI with TeamCity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-build-with-jenkins" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Image Build with Jenkins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cd-with-spinnaker" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 CD with Spinnaker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-workflow-branch-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌿 Git Workflow &amp; Branch Protection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resilience-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ Resilience &amp; Recovery
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -536,7 +678,48 @@
 
 
 
-<h1 id="features">Features</h1>
+  <h1>⭐ Features</h1>
+
+<h2 id="web-app-deployment">📦 Web App Deployment</h2>
+<ul>
+<li>Java-based web app containerized with <strong>Docker</strong>.  </li>
+<li>Runs in <strong>Kubernetes</strong> with <strong>five replicas</strong> for reliability.  </li>
+<li><strong>Canary deployment strategy</strong> → traffic gradually shifted using <strong>Istio</strong>.  </li>
+</ul>
+<hr />
+<h2 id="ci-with-teamcity">⚙️ CI with TeamCity</h2>
+<ul>
+<li><strong>GitHub repo</strong> integrated with TeamCity.  </li>
+<li>Code compilation + unit testing automated on every <strong>Pull Request (PR)</strong>.  </li>
+<li>Status checks ensure only <strong>passing builds</strong> can be merged.  </li>
+</ul>
+<hr />
+<h2 id="image-build-with-jenkins">🏗️ Image Build with Jenkins</h2>
+<ul>
+<li>Jenkins builds <strong>Docker images</strong> from source.  </li>
+<li>Dual tagging: <code>BUILD_NUMBER-hash</code> (<strong>versioned</strong>) + <code>latest</code>.  </li>
+<li>Pushes securely to <strong>DockerHub</strong>.  </li>
+</ul>
+<hr />
+<h2 id="cd-with-spinnaker">🚀 CD with Spinnaker</h2>
+<ul>
+<li>Spinnaker watches <strong>DockerHub</strong> and/or <strong>Jenkins webhook</strong>.  </li>
+<li>Automatically deploys new images to <strong>canary</strong>, then <strong>stable</strong>.  </li>
+<li>Supports <strong>rollback</strong> if canary fails.  </li>
+</ul>
+<hr />
+<h2 id="git-workflow-branch-protection">🌿 Git Workflow &amp; Branch Protection</h2>
+<ul>
+<li><code>main</code> → <strong>production branch</strong>.  </li>
+<li><code>dev</code> → <strong>development/testing branch</strong>.  </li>
+<li>Pull Request workflow enforced with <strong>reviews + approvals</strong>.  </li>
+</ul>
+<hr />
+<h2 id="resilience-recovery">🛡️ Resilience &amp; Recovery</h2>
+<ul>
+<li>Runbooks prepared for <strong>CI/CD failures</strong>, <strong>merge conflicts</strong>, and <strong>rollout issues</strong>.  </li>
+<li>Ability to quickly <strong>rollback to last stable release</strong>.  </li>
+</ul>
 
 
 
