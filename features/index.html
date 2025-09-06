@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#web-app-deployment" class="md-skip">
+        <a href="#features" class="md-skip">
           Skip to content
         </a>
       
@@ -429,6 +429,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -460,6 +462,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -499,6 +503,15 @@
   <a href="#cd-with-spinnaker" class="md-nav__link">
     <span class="md-ellipsis">
       🚀 CD with Spinnaker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-canary-releases-spinnaker-istio-prometheus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated Canary Releases (Spinnaker + Istio + Prometheus)
     </span>
   </a>
   
@@ -601,6 +614,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -645,6 +660,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#automated-canary-releases-spinnaker-istio-prometheus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated Canary Releases (Spinnaker + Istio + Prometheus)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#git-workflow-branch-protection" class="md-nav__link">
     <span class="md-ellipsis">
       🌿 Git Workflow &amp; Branch Protection
@@ -678,47 +702,55 @@
 
 
 
-  <h1>⭐ Features</h1>
-
+<h1 id="features">Features</h1>
 <h2 id="web-app-deployment">📦 Web App Deployment</h2>
 <ul>
-<li>Java-based web app containerized with <strong>Docker</strong>.  </li>
-<li>Runs in <strong>Kubernetes</strong> with <strong>five replicas</strong> for reliability.  </li>
-<li><strong>Canary deployment strategy</strong> → traffic gradually shifted using <strong>Istio</strong>.  </li>
+<li>Java-based web app containerized with Docker.  </li>
+<li>Runs in Kubernetes with <strong>five replicas</strong> for reliability.  </li>
+<li>Canary deployment strategy → traffic gradually shifted using Istio.  </li>
 </ul>
 <hr />
 <h2 id="ci-with-teamcity">⚙️ CI with TeamCity</h2>
 <ul>
-<li><strong>GitHub repo</strong> integrated with TeamCity.  </li>
-<li>Code compilation + unit testing automated on every <strong>Pull Request (PR)</strong>.  </li>
-<li>Status checks ensure only <strong>passing builds</strong> can be merged.  </li>
+<li>GitHub repo integrated with TeamCity.  </li>
+<li>Code compilation + unit testing automated on every Pull Request (PR).  </li>
+<li>Status checks ensure only passing builds can be merged.  </li>
 </ul>
 <hr />
 <h2 id="image-build-with-jenkins">🏗️ Image Build with Jenkins</h2>
 <ul>
-<li>Jenkins builds <strong>Docker images</strong> from source.  </li>
-<li>Dual tagging: <code>BUILD_NUMBER-hash</code> (<strong>versioned</strong>) + <code>latest</code>.  </li>
-<li>Pushes securely to <strong>DockerHub</strong>.  </li>
+<li>Jenkins builds Docker images from source.  </li>
+<li>Dual tagging: <code>BUILD_NUMBER-hash</code> (versioned) + <code>latest</code>.  </li>
+<li>Pushes securely to DockerHub.  </li>
 </ul>
 <hr />
 <h2 id="cd-with-spinnaker">🚀 CD with Spinnaker</h2>
 <ul>
-<li>Spinnaker watches <strong>DockerHub</strong> and/or <strong>Jenkins webhook</strong>.  </li>
+<li>Spinnaker watches DockerHub and/or Jenkins webhook.  </li>
 <li>Automatically deploys new images to <strong>canary</strong>, then <strong>stable</strong>.  </li>
-<li>Supports <strong>rollback</strong> if canary fails.  </li>
+<li>Supports rollback if canary fails.  </li>
+</ul>
+<hr />
+<h2 id="automated-canary-releases-spinnaker-istio-prometheus">Automated Canary Releases (Spinnaker + Istio + Prometheus)</h2>
+<ul>
+<li><strong>Spinnaker</strong> → Orchestrates canary-first deployments.</li>
+<li><strong>Istio</strong> → Splits traffic (e.g., 90% stable, 10% canary).</li>
+<li><strong>Prometheus</strong> → Provides health metrics for Automated Canary Analysis (ACA).</li>
+<li>If canary succeeds → promoted to full rollout.</li>
+<li>If canary fails → automatic rollback to stable version.</li>
 </ul>
 <hr />
 <h2 id="git-workflow-branch-protection">🌿 Git Workflow &amp; Branch Protection</h2>
 <ul>
-<li><code>main</code> → <strong>production branch</strong>.  </li>
-<li><code>dev</code> → <strong>development/testing branch</strong>.  </li>
-<li>Pull Request workflow enforced with <strong>reviews + approvals</strong>.  </li>
+<li><code>main</code> → production branch.  </li>
+<li><code>dev</code> → development/testing branch.  </li>
+<li>Pull Request workflow enforced with reviews + approvals.  </li>
 </ul>
 <hr />
 <h2 id="resilience-recovery">🛡️ Resilience &amp; Recovery</h2>
 <ul>
-<li>Runbooks prepared for <strong>CI/CD failures</strong>, <strong>merge conflicts</strong>, and <strong>rollout issues</strong>.  </li>
-<li>Ability to quickly <strong>rollback to last stable release</strong>.  </li>
+<li>Runbooks prepared for CI/CD failures, merge conflicts, and rollout issues.  </li>
+<li>Ability to quickly rollback to last stable release.  </li>
 </ul>
 
 

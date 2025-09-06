@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sample-lang-ni-nga-diagram" class="md-skip">
+        <a href="#description-of-the-solution" class="md-skip">
           Skip to content
         </a>
       
@@ -400,18 +400,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sample-lang-ni-nga-diagram" class="md-nav__link">
+  <a href="#description-of-the-solution" class="md-nav__link">
     <span class="md-ellipsis">
-      🏗 Sample lang ni nga Diagram
+      Description of the Solution
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-lang-ni-nga-diagram_1" class="md-nav__link">
+  <a href="#deployment-strategy-canary-release-model" class="md-nav__link">
     <span class="md-ellipsis">
-      🏗 Sample lang ni nga Diagram
+      Deployment Strategy: Canary Release Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cicd-workflow-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI/CD Workflow Diagram
     </span>
   </a>
   
@@ -573,18 +591,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sample-lang-ni-nga-diagram" class="md-nav__link">
+  <a href="#description-of-the-solution" class="md-nav__link">
     <span class="md-ellipsis">
-      🏗 Sample lang ni nga Diagram
+      Description of the Solution
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-lang-ni-nga-diagram_1" class="md-nav__link">
+  <a href="#deployment-strategy-canary-release-model" class="md-nav__link">
     <span class="md-ellipsis">
-      🏗 Sample lang ni nga Diagram
+      Deployment Strategy: Canary Release Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cicd-workflow-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI/CD Workflow Diagram
     </span>
   </a>
   
@@ -608,6 +644,7 @@
 
   <h1>📄 Description</h1>
 
+<h2 id="description-of-the-solution">Description of the Solution</h2>
 <p>Our team has developed a <strong>CI/CD solution</strong> that integrates four key tools across two distinct environments:</p>
 <ul>
 <li><strong>CI Environment (Google Cloud VM):</strong><br />
@@ -615,28 +652,47 @@
 <li><strong>CD Environment (Kubernetes Cluster):</strong><br />
   Runs <strong>Spinnaker</strong> for deployment orchestration and <strong>Istio</strong> for service mesh traffic management.  </li>
 </ul>
-<p>This separation keeps production clean: builds and tests run outside the cluster, while deployments and traffic management stay inside Kubernetes.
-The web application is a <strong>Java-based project</strong> (chosen because of its natural compatibility with TeamCity). It is containerized with Docker, versioned through GitHub, and deployed into Kubernetes.
-The deployment strategy follows a <strong>canary release model</strong>, where new versions are introduced to a small percentage of users before full rollout. Istio enables traffic splitting, while Spinnaker orchestrates the process.</p>
+<p>This separation keeps production clean: builds and tests run outside the cluster, while deployments and traffic management stay inside Kubernetes.</p>
+<p>The web application is a <strong>Java-based project</strong> (chosen because of its natural compatibility with TeamCity). It is containerized with Docker, versioned through GitHub, and deployed into Kubernetes.</p>
+<h2 id="deployment-strategy-canary-release-model">Deployment Strategy: Canary Release Model</h2>
+<p>The deployment strategy follows a <strong>canary release model</strong>:</p>
+<ul>
+<li><strong>Spinnaker</strong> automates the rollout.  </li>
+<li><strong>Istio</strong> handles traffic routing, initially directing a small percentage of user traffic (e.g., 10%) to the new canary release.  </li>
+<li><strong>Prometheus</strong> collects real-time performance metrics (latency, error rates, pod health) and provides data for Automated Canary Analysis (ACA).  </li>
+</ul>
+<p>If the canary passes health checks → Spinnaker promotes the new version to all users.  </p>
+<p>If it fails → Spinnaker triggers an <strong>automatic rollback</strong> to the last stable version.  </p>
+<p>This combination ensures safer deployments with reduced risk, high observability, and faster recovery.</p>
 <hr />
-<h2 id="sample-lang-ni-nga-diagram">🏗 Sample lang ni nga Diagram</h2>
-<pre class="mermaid"><code>graph LR
-  A[Start] --&gt; B{Failure?};
-  B --&gt;|Yes| C[Investigate...];
-  C --&gt; D[Debug];
-  D --&gt; B;
-  B ----&gt;|No| E[Success!];</code></pre>
-<h2 id="sample-lang-ni-nga-diagram_1">🏗 Sample lang ni nga Diagram</h2>
-<pre class="mermaid"><code>sequenceDiagram
-  autonumber
-  Server-&gt;&gt;Terminal: Send request
-  loop Health
-      Terminal-&gt;&gt;Terminal: Check for health
-  end
-  Note right of Terminal: System online
-  Terminal--&gt;&gt;Server: Everything is OK
-  Terminal-&gt;&gt;Database: Request customer data
-  Database--&gt;&gt;Terminal: Customer data</code></pre>
+<h2 id="architecture-diagram">Architecture Diagram</h2>
+<pre class="mermaid"><code>flowchart TD
+    subgraph VM[Google Cloud VM - CI Environment]
+        A[TeamCity] --&gt;|Unit Tests + Build Validation| B[Jenkins]
+        B --&gt;|Builds Docker Image| C[DockerHub]
+    end
+
+    subgraph K8s[Kubernetes Cluster - CD Environment]
+        C --&gt; D[Spinnaker]
+        D --&gt; E[Canary Deployment]
+        D --&gt; F[Stable Deployment]
+        E --&gt; G[Istio Traffic Split]
+        F --&gt; G
+        G --&gt; H[Users]
+        G --&gt; I[Prometheus Metrics]
+        I --&gt; D
+    end</code></pre>
+<h2 id="cicd-workflow-diagram">CI/CD Workflow Diagram</h2>
+<pre class="mermaid"><code>flowchart TD
+    A[Developer Commit &amp; Pull Request] --&gt; B[TeamCity Build &amp; Unit Tests]
+    B --&gt;|Pass| C[Jenkins Builds Docker Image]
+    C --&gt; D[Push Image to DockerHub]
+    D --&gt; E[Spinnaker Triggers Deployment]
+    E --&gt; F[Canary Pods in Kubernetes]
+    F --&gt; G["Istio Splits Traffic&lt;br/&gt;&lt;i&gt;10% Canary, 90% Stable&lt;/i&gt;"]
+    G --&gt; H[Prometheus Monitors Metrics]
+    H --&gt;|Healthy| I[Promote Canary to Stable - 100% Traffic]
+    H --&gt;|Unhealthy| J[Rollback to Previous Stable]</code></pre>
 
 
 
