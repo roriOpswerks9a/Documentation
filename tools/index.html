@@ -991,8 +991,8 @@
 <li>Merges trigger Jenkins to:<ul>
 <li>Build a Docker image.</li>
 <li>Tag the image with:<ul>
-<li>:buildNumber-hash (e.g., 42-a1b2c3d) → unique, traceable version.</li>
-<li>:latest → always points to the newest successful build.</li>
+<li><code>:buildNumber-hash</code> (e.g., 42-a1b2c3d) → unique, traceable version.</li>
+<li><code>:latest</code> → always points to the newest successful build.</li>
 </ul>
 </li>
 <li>Push both tags to Docker Hub.</li>
@@ -1081,7 +1081,7 @@
 <ul>
 <li><strong>Checkout</strong> → Pulls latest source code from GitHub.</li>
 <li><strong>Docker Login</strong> → Uses Jenkins credentials for secure DockerHub authentication.</li>
-<li><strong>Build Image</strong> → Builds Docker image with dual tagging (:buildNumber-hash + :latest).</li>
+<li><strong>Build Image</strong> → Builds Docker image with dual tagging (<code>:buildNumber-hash</code> + <code>:latest</code>).</li>
 <li><strong>Push Image</strong> → Pushes both tags to DockerHub registry.</li>
 <li><strong>Post Actions</strong> → Ensures logout from DockerHub and logs build result.</li>
 </ul>
