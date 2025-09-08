@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#recovery" class="md-skip">
+        <a href="#recovery-plan" class="md-skip">
           Skip to content
         </a>
       
@@ -476,6 +476,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    ❤️ Recovery
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -487,6 +500,94 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-recovery-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Recovery Principles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recovery-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recovery Process
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recovery Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reprovision-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reprovision Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore-ci-tools-vm-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restore CI Tools (VM side)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore-cd-tools-cluster-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restore CD Tools (Cluster side)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redeploy-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redeploy Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-system-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verify System Health
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -520,6 +621,83 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-recovery-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Recovery Principles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recovery-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recovery Process
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recovery Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reprovision-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reprovision Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore-ci-tools-vm-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restore CI Tools (VM side)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore-cd-tools-cluster-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restore CD Tools (Cluster side)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redeploy-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redeploy Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-system-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verify System Health
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -534,7 +712,51 @@
 
 
 
-<h1 id="recovery">Recovery</h1>
+<h1 id="recovery-plan">Recovery Plan</h1>
+<p>The Recovery Plan ensures the system can be restored quickly in case of infrastructure, tool, or configuration failures. Instead of starting from scratch, our approach focuses on backing up and restoring configurations, pipeline definitions, and container images. This allows us to reduce downtime, avoid repetitive manual setup, and guarantee a faster return to operations.</p>
+<hr />
+<h2 id="core-recovery-principles">Core Recovery Principles</h2>
+<ul>
+<li><strong>Configuration Backups</strong> – Jenkins pipelines, TeamCity builds, Spinnaker JSON/YAML pipelines, Istio VirtualServices, and Prometheus rules are backed up and versioned.  </li>
+<li><strong>Immutable Artifacts</strong> – The Python web app is stored in GitHub, while all Docker images (versioned + latest) are pushed to DockerHub. This ensures we can redeploy any version at any time.  </li>
+<li><strong>Infrastructure Automation</strong> – New VMs or clusters can be provisioned in Google Cloud quickly, then configured with the backed-up definitions.  </li>
+<li><strong>Separation of Concerns</strong> – CI tools (Jenkins, TeamCity) run in VMs, while CD tools (Spinnaker, Istio, Prometheus) run inside Kubernetes. This separation helps contain recovery scope.  </li>
+</ul>
+<hr />
+<h2 id="recovery-process">Recovery Process</h2>
+<p>If a VM or cluster fails, recovery follows these steps:
+<br><br></p>
+<h4 id="reprovision-infrastructure">Reprovision Infrastructure</h4>
+<ul>
+<li>Spin up a new VM or GKE cluster.
+<br><br></li>
+</ul>
+<h4 id="restore-ci-tools-vm-side">Restore CI Tools (VM side)</h4>
+<ul>
+<li>Reinstall Jenkins and TeamCity.  </li>
+<li>Import backed-up configurations and credentials.<br />
+<br><br></li>
+</ul>
+<h4 id="restore-cd-tools-cluster-side">Restore CD Tools (Cluster side)</h4>
+<ul>
+<li>Reinstall Spinnaker (minimal setup only).  </li>
+<li>Import saved pipeline definitions instead of recreating them.  </li>
+<li>Apply Istio traffic-splitting rules from backups.  </li>
+<li>Reload Prometheus monitoring and alerting configs.<br />
+<br><br></li>
+</ul>
+<h4 id="redeploy-application">Redeploy Application</h4>
+<ul>
+<li>Pull stable or latest Docker images directly from DockerHub.  </li>
+<li>Roll out to Kubernetes using Spinnaker.<br />
+<br><br></li>
+</ul>
+<h4 id="verify-system-health">Verify System Health</h4>
+<ul>
+<li>Confirm replicas are healthy in Kubernetes.  </li>
+<li>Validate traffic routing (canary/stable) via Istio.  </li>
+<li>Check monitoring dashboards in Prometheus.  </li>
+</ul>
 
 
 
