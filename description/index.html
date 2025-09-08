@@ -653,7 +653,7 @@
   Runs <strong>Spinnaker</strong> for deployment orchestration and <strong>Istio</strong> for service mesh traffic management.  </li>
 </ul>
 <p>This separation keeps production clean: builds and tests run outside the cluster, while deployments and traffic management stay inside Kubernetes.</p>
-<p>The web application is a <strong>Java-based project</strong> (chosen because of its natural compatibility with TeamCity). It is containerized with Docker, versioned through GitHub, and deployed into Kubernetes.</p>
+<p>The web application is a <strong>Python-based project</strong> (chosen because of its natural compatibility with TeamCity). It is containerized with Docker, versioned through GitHub, and deployed into Kubernetes.</p>
 <h2 id="deployment-strategy-canary-release-model">Deployment Strategy: Canary Release Model</h2>
 <p>The deployment strategy follows a <strong>canary release model</strong>:</p>
 <ul>
